@@ -145,6 +145,8 @@ public class CLL {
                  {
                     if(temp.next.item==data) // From current node checking for the data in next node
                      {
+                        if(temp.next==last) // node to be deleted is the last node
+                         last = temp;
                         temp.next = temp.next.next;
                         response = true;
                         break;
@@ -223,7 +225,7 @@ public class CLL {
     public void emptyList() // Alternative to destructor
      {
         last.next = null; // No one is pointing to 1st node hence it will be deleted and serially all nodes will be deleted except last node
-        last = null; 
+        last = null; // This will delete the last node 
      }
 
     public static void main(String[] args) {

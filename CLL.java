@@ -76,14 +76,16 @@ public class CLL {
             response = temp;
            else
            {
-            do{
-              if(temp.item==data) // If node with provided data found
+            temp = temp.next; // As 1st node is already checked so , starting from node 2
+              while(temp!=last.next) // Traverse the whole list 
                {
-                 response = temp;
-                 break;
-               }
-              temp = temp.next; // Move on next node
-              }while(temp!=last.next);
+                 if(temp.item==data) // If node with provided data found
+                  {
+                    response = temp;
+                    break;
+                  }
+                 temp = temp.next; // Move on next node
+               };
               if(temp==last.next) // Back to the first node - means data is not found in the linked list
                System.out.println("Value "+ data +" is not present in the list !");
            }

@@ -85,7 +85,7 @@ public class CLL {
                     break;
                   }
                  temp = temp.next; // Move on next node
-               };
+               }
               if(temp==last.next) // Back to the first node - means data is not found in the linked list
                System.out.println("Value "+ data +" is not present in the list !");
            }

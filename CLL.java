@@ -61,7 +61,7 @@ public class CLL {
                 response = true;
              }
          }
-        else if(last==null) // Empty linked list
+        else
          System.out.println("Linked list is empty !");
         return (response);
      }
@@ -231,15 +231,9 @@ public class CLL {
     public static void main(String[] args) {
         CLL list = new CLL();
         
-        list.insertAtEnd(10);
-        list.insertAtEnd(20);
-        
-        CLL list2 = new CLL();
-        list2.insertAtEnd(100);
-        list2.insertAtEnd(200);
-        list2.display();
-        list2.copy(list);
-        list2.display();
+        list.insertAfter(10, 15);
+
+        list.display();
 
     }
 }

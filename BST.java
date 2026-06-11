@@ -87,6 +87,41 @@ public class BST {
             pre(temp.right);
          }
      }
+
+    public void postorder()
+     {
+        if(root!=null) // Non empty tree
+         post(root);
+        else // Empty tree
+         System.out.print("Tree is empty !");
+        System.out.println(); // Create a new line
+     }
+
+    private void post(Node temp)
+     {
+        if(temp!=null)
+         {
+            pre(temp.left);
+            pre(temp.right);
+            System.out.print(temp.item+" ");
+         }
+     }
+
+    public int totalNodes()
+     {
+        return (total(root));
+     }
+
+    private int total(Node temp) 
+     {  int sum = 0;
+        if(temp!=null)
+         {
+            sum++;
+            sum += total(temp.left);
+            sum += total(temp.right);
+         }
+        return (sum);
+     }
     
     public static void main(String[] args) {
         
@@ -94,8 +129,7 @@ public class BST {
         bst.insert(90);
         bst.insert(80);
         bst.insert(100);
-        bst.inorder();
-
+        System.out.println(bst.totalNodes());
 
     }
 }

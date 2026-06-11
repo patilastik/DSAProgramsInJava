@@ -2,8 +2,8 @@
 // Date end :- 08/06/26
 class Node{
 
-    int item; // by default it stores 0
-    Node next; // by default it contains null
+    public int item; // by default it stores 0
+    public Node next; // by default it contains null
 
     public Node(int data) // Constructor
      {
@@ -13,7 +13,7 @@ class Node{
 
 public class SLL {
 
-    Node head; // by default it contains null
+    private Node head; // by default it contains null
 
     public SLL(){} // 0 args constructor
 

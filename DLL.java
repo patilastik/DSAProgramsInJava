@@ -15,7 +15,7 @@ class Node{
 
 public class DLL {
 
-    Node head; // by default it contains null
+    private Node head; // by default it contains null
 
     public DLL(){} // 0 args constructor
 

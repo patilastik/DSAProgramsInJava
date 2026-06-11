@@ -13,7 +13,7 @@ class Node{
 
 public class CLL {
 
-    Node last; // by default it contains null
+    private Node last; // by default it contains null
 
     public CLL(){} // 0 args constructor
 

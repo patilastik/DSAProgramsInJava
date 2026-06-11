@@ -15,7 +15,7 @@ class Node{
 
 public class CDLL {
 
-    Node head; // by default it contains null
+    private Node head; // by default it contains null
 
     public CDLL(){} // 0 args constructor
 

@@ -49,8 +49,34 @@ public class BST {
              }
          }   
      } 
+
+    public void preorder()
+     {
+        if(root!=null) // Non empty tree
+         pre(root);
+        else // Empty tree
+         System.out.print("Tree is empty !");
+        System.out.println(); // Create a new line
+     }
+
+    private void pre(Node temp)
+     {
+        if(temp!=null)
+         {
+            System.out.print(temp.item+" ");
+            pre(temp.left);
+            pre(temp.right);
+         }
+     }
     
     public static void main(String[] args) {
         
+        BST bst = new BST();
+        bst.insert(90);
+        bst.insert(80);
+        bst.insert(100);
+        bst.preorder();
+
+
     }
 }

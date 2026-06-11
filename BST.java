@@ -68,6 +68,25 @@ public class BST {
             pre(temp.right);
          }
      }
+
+    public void inorder()
+     {
+        if(root!=null) // Non empty tree
+         in(root);
+        else // Empty tree
+         System.out.print("Tree is empty !");
+        System.out.println(); // Create a new line
+     }
+
+    private void in(Node temp)
+     {
+        if(temp!=null)
+         {
+            pre(temp.left);
+            System.out.print(temp.item+" ");
+            pre(temp.right);
+         }
+     }
     
     public static void main(String[] args) {
         
@@ -75,7 +94,7 @@ public class BST {
         bst.insert(90);
         bst.insert(80);
         bst.insert(100);
-        bst.preorder();
+        bst.inorder();
 
 
     }

@@ -122,7 +122,10 @@ public class BST {
        {
          if(root.item==data)
           {
-            deleteNonLeaf(root,root);
+            if(root.left==null && root.right==null) // Only root node is remains in the tree
+             root = null;
+            else // More than 1 nodes are present
+             deleteNonLeaf(root,root);
             isDelete =  true;
           }
          else  // Finding the node to delete
@@ -176,7 +179,6 @@ public class BST {
 
    private void deleteNonLeaf(Node temp1,Node temp2) // Will handle root node and non leaf node case
     {
-      // Don't forget to push into github
       if(temp2.left!=null && temp2.right==null) // Having only left child no right child
        {
          // Deciding whether the left child of the node which we want to delete will be left or right to the parent
@@ -217,8 +219,6 @@ public class BST {
        
        BST bst = new BST();
        bst.insert(100);
-       bst.insert(90);
-       bst.insert(110);
        bst.preorder();
        System.out.println(bst.delete(100));
        bst.preorder();

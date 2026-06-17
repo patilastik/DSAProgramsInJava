@@ -253,7 +253,12 @@ public class BST {
       return (found);
     }
 
-    
+   public boolean isEmpty()
+    {
+      return (root==null);
+    }
+
+   
    
    public static void main(String[] args) {
        

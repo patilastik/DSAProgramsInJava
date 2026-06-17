@@ -258,7 +258,20 @@ public class BST {
       return (root==null);
     }
 
-   
+   public BST(BST ref) // Copy constructor - internally calls deepCopy() 
+    {
+      deepCopy(ref.root);
+    }
+
+   private void deepCopy(Node temp) // Performs the deep copy using preorder traversal 
+    {
+      if(temp!=null)
+      {
+         insert(temp.item);
+         deepCopy(temp.left);
+         deepCopy(temp.right);
+      }
+    }
    
    public static void main(String[] args) {
        
@@ -269,7 +282,12 @@ public class BST {
        bst.insert(70);
        bst.insert(20);
        bst.insert(35); 
+       bst.preorder();
 
-       bst.inorder();
+       BST bst2 = new BST(bst);
+       bst.delete(70);
+       bst.preorder();
+       bst2.preorder();
+
    }
 }

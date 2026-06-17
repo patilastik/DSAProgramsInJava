@@ -120,7 +120,7 @@ public class BST {
       boolean isDelete = false;
       if(root!=null) // Non empty tree
        {
-         if(root.item==data)
+         if(root.item==data) // root node case
           {
             if(root.left==null && root.right==null) // Only root node is remains in the tree
              root = null;
@@ -181,19 +181,29 @@ public class BST {
     {
       if(temp2.left!=null && temp2.right==null) // Having only left child no right child
        {
-         // Deciding whether the left child of the node which we want to delete will be left or right to the parent
-         if(temp2.item<temp1.item) // parent and child are in left subtree or parent is root and child is left node
-          temp1.left = temp2.left;
-         else // // parent and child are in right subtree or parent is root and child is right node
-          temp1.right = temp2.left;
+         if(temp1==temp2) // root node case
+          root = root.left;
+         else // non root node case
+          {
+            // Deciding whether the left child of the node which we want to delete will be left or right to the parent
+            if(temp2.item<temp1.item) // parent and child are in left subtree or parent is root and child is left node
+             temp1.left = temp2.left;
+            else // // parent and child are in right subtree or parent is root and child is right node
+             temp1.right = temp2.left;
+          }
        }
       else if(temp2.left==null && temp2.right!=null) // Having only right child no left child
        {
-         // Deciding whether the right child of the node which we want to delete will be left or right to the parent
-         if(temp2.item>temp1.item) // parent and child are in right subtree or parent is root and child is right node
-          temp1.right = temp2.right;
-         else // parent and child are in left subtree or parent is root and child is left node
-          temp1.left = temp2.right;
+         if(temp1==temp2) // root node case
+          root = root.right;
+         else // Non root node case
+          {
+            // Deciding whether the right child of the node which we want to delete will be left or right to the parent
+            if(temp2.item>temp1.item) // parent and child are in right subtree or parent is root and child is right node
+             temp1.right = temp2.right;
+            else // parent and child are in left subtree or parent is root and child is left node
+             temp1.left = temp2.right;
+          }
        }
       else // Having both the childs
        {
@@ -219,6 +229,7 @@ public class BST {
        
        BST bst = new BST();
        bst.insert(100);
+       bst.insert(110);
        bst.preorder();
        System.out.println(bst.delete(100));
        bst.preorder();

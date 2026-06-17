@@ -212,7 +212,12 @@ public class BST {
           {
             temp.right = temp2.right; // Right subtree of node which we want to delete now will become right subtree of left child of node which we want to delete
             if(temp1!=temp2) // Non root node case
-             temp1.left = temp;
+             {
+               if(temp2.item<temp1.item) // Left subtree case
+                temp1.left = temp;
+               else // Right subtree case
+                temp1.right = temp;
+             }
             else // root node case
              root = temp;
           }
@@ -232,10 +237,10 @@ public class BST {
        bst.insert(30);
        bst.insert(70);
        bst.insert(20);
-       bst.insert(40);
        bst.insert(35);
+       
        bst.preorder();
-       System.out.println(bst.delete(50));
+       System.out.println(bst.delete(30));
        bst.preorder();
    }
 }

@@ -16,6 +16,8 @@ public class BST {
 
    private Node root; // by default it contains null
 
+   public BST(){} // 0 args constructor
+
    public void insert(int data) // Inserts an element into the tree
     {
        Node node = new Node(data);
@@ -251,10 +253,7 @@ public class BST {
       return (found);
     }
 
-   public boolean isEmpty()
-    {
-      return (root==null);
-    }
+    
    
    public static void main(String[] args) {
        

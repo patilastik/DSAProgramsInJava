@@ -260,7 +260,8 @@ public class BST {
 
    public BST(BST ref) // Copy constructor - internally calls deepCopy() 
     {
-      deepCopy(ref.root);
+      if(ref.root!=null) // If the another tree is non empty
+       deepCopy(ref.root);
     }
 
    private void deepCopy(Node temp) // Performs the deep copy using preorder traversal 
@@ -272,6 +273,16 @@ public class BST {
          deepCopy(temp.right);
       }
     }
+
+   public void copy(BST ref)
+    {
+      if(this!=ref) // Both are different objects
+       {
+         root = null; // garbage collector will make the current tree empty
+         if(ref.root!=null) // If the another tree is non empty
+          deepCopy(ref.root);
+       }
+    }
    
    public static void main(String[] args) {
        
@@ -282,12 +293,18 @@ public class BST {
        bst.insert(70);
        bst.insert(20);
        bst.insert(35); 
+       
+       BST bst2 = new BST();
+       bst2.insert(100);
+       bst2.insert(90);
+       bst2.insert(110);
        bst.preorder();
-
-       BST bst2 = new BST(bst);
+       bst2.preorder();
+       bst2.copy(bst);
        bst.delete(70);
        bst.preorder();
        bst2.preorder();
+
 
    }
 }

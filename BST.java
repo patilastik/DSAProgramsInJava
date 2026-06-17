@@ -57,7 +57,7 @@ public class BST {
         System.out.print("Tree is empty !");
        System.out.println(); // Create a new line
     }
-   private void pre(Node temp)
+   private void pre(Node temp) // Performs preorder traversal
     {
        if(temp!=null)
         {
@@ -74,13 +74,13 @@ public class BST {
         System.out.print("Tree is empty !");
        System.out.println(); // Create a new line
     }
-   private void in(Node temp)
+   private void in(Node temp) // Performs inorder traversal
     {
        if(temp!=null)
         {
-           pre(temp.left);
+           in(temp.left);
            System.out.print(temp.item+" ");
-           pre(temp.right);
+           in(temp.right);
         }
     }
    public void postorder()
@@ -91,12 +91,12 @@ public class BST {
         System.out.print("Tree is empty !");
        System.out.println(); // Create a new line
     }
-   private void post(Node temp)
+   private void post(Node temp) // Performs postorder traversal
     {
        if(temp!=null)
         {
-           pre(temp.left);
-           pre(temp.right);
+           post(temp.left);
+           post(temp.right);
            System.out.print(temp.item+" ");
         }
     }
@@ -104,6 +104,7 @@ public class BST {
     {
        return (total(root));
     }
+
    private int total(Node temp) 
     {  int sum = 0;
        if(temp!=null)
@@ -230,17 +231,41 @@ public class BST {
          } 
        }
     }
+
+   public boolean isPresent(int data)
+    {
+      boolean found = false;
+      Node temp = root; // Initially points to the root node (if tree is non empty)
+      while(temp!=null)
+       {
+         if(temp.item==data) // If the node that we are looking for found in the tree
+          {
+            found = true;
+            break;
+          }
+         else if(data<temp.item) // data is less than the current node's data
+          temp = temp.left;
+         else // data is greater than the current node's data
+          temp = temp.right;
+       }
+      return (found);
+    }
+
+   public boolean isEmpty()
+    {
+      return (root==null);
+    }
+   
    public static void main(String[] args) {
        
        BST bst = new BST();
+       
        bst.insert(50);
        bst.insert(30);
        bst.insert(70);
        bst.insert(20);
-       bst.insert(35);
-       
-       bst.preorder();
-       System.out.println(bst.delete(30));
-       bst.preorder();
+       bst.insert(35); 
+
+       bst.inorder();
    }
 }

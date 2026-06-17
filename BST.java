@@ -210,28 +210,32 @@ public class BST {
          Node temp = temp2.left; // Points to the left child of the node which we want to delete
          if(temp.right==null) // Left node of the node which we want to delete don't have right subtree
           {
-            temp.right = temp2.right; // Right subtree of nod which we want to delete now will become right subtree of left child of node which we want to delete
+            temp.right = temp2.right; // Right subtree of node which we want to delete now will become right subtree of left child of node which we want to delete
             if(temp1!=temp2) // Non root node case
              temp1.left = temp;
             else // root node case
              root = temp;
           }
-         else 
+         else // Left node of the node which we want to delete have right subtree
           {
             while(temp.right!=null && temp.right.right!=null) // Traverse upto the parent of the rightmost node of left subtree of the node which we want to delete
              temp = temp.right; // Move on right node
             temp2.item = temp.right.item;
-            temp.right = null;
+            temp.right = temp.right.left; // If the node whose value we copied has left subtree 
          } 
        }
     }
    public static void main(String[] args) {
        
        BST bst = new BST();
-       bst.insert(100);
-       bst.insert(110);
+       bst.insert(50);
+       bst.insert(30);
+       bst.insert(70);
+       bst.insert(20);
+       bst.insert(40);
+       bst.insert(35);
        bst.preorder();
-       System.out.println(bst.delete(100));
+       System.out.println(bst.delete(50));
        bst.preorder();
    }
 }

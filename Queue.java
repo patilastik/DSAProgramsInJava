@@ -82,6 +82,20 @@ public class Queue {
           }
       }
 
+     public int totalElements()
+      {
+         int total = 0;
+         if(last!=null) // Non empty queue
+          {
+            Node temp = last.next; // Currently points to the first node
+           do{
+             total++;
+             temp = temp.next; // Move on next node
+             }while(temp!=last.next);
+          }
+         return (total);
+      }
+
      public int getRear()
       {
          try{
